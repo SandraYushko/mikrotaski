@@ -22,9 +22,9 @@ export const NewComponent = (props: NewComponentPropsType) => {
                    debugger
                     return (
                         <div className="tableTD">
-                            <td>{index+1}</td>
-                            <td key={index}>{carsFromCarsArray.manufacturer}</td>
-                            <td key={index}>{carsFromCarsArray.model}</td>
+                            <td width="50">{index+1}</td>
+                            <td key={index} width="200">{carsFromCarsArray.manufacturer}</td>
+                            <td key={index} width="200">{carsFromCarsArray.model}</td>
                         </div>
                     )
                 } )}
