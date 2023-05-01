@@ -5,3 +5,16 @@
   flex-direction: column;
 }
 
+.table {
+  width: 60%;
+  margin: auto;
+}
+
+.tableTD {
+  width: 60%;
+  margin: auto;
+}
+
+
+
+
