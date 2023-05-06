@@ -1,28 +1,24 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {Header} from "./site/Header";
-import {Footer} from "./site/Footer";
-import {Body} from "./site/Body";
-import {NewComponent} from "./NewComponent";
 
 function App() {
-    const topCars = [
-        {manufacturer:'BMW', model:'m5cs'},
-        {manufacturer:'Mercedes', model:'e63s'},
-        {manufacturer:'Audi', model:'rs6'}
-    ]
+    let[a,setA]=useState(1)
+    const onClickHandler=()=>{
+        setA(++a);
+        console.log(a)
+    }
+    const onClickDelet=()=>{
+        setA(0);
+        console.log(0)
+    }
     return (
         <div className="App">
-            <div className="container">
-                <Header title={'New Header'}/>
-                <Body titleForBody={'New Body'}/>
-                <Footer titleForFooter={'New Footer'}/>
-                <NewComponent cars={topCars}/>
-            </div>
-
+            <h1>{a}</h1>
+            <button onClick={onClickHandler}>number</button>
+            <button onClick={onClickDelet}>0</button>
         </div>
-    );
+    )
 }
 
 export default App;
