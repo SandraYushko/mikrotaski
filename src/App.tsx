@@ -3,20 +3,16 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
-    let[a,setA]=useState(1)
-    const onClickHandler=()=>{
-        setA(++a);
-        console.log(a)
+    const myFirstSubscriber = () => {
+        console.log("Hello i'm Vasya")
     }
-    const onClickDelet=()=>{
-        setA(0);
-        console.log(0)
+    const mySecondSubscriber = () => {
+        console.log("Hello i'm Ivan")
     }
     return (
         <div className="App">
-            <h1>{a}</h1>
-            <button onClick={onClickHandler}>number</button>
-            <button onClick={onClickDelet}>0</button>
+            <button onClick={myFirstSubscriber}>MyYouTubeChanel-1</button>
+            <button onClick={mySecondSubscriber}>MyYouTubeChanel-2</button>
         </div>
     )
 }
