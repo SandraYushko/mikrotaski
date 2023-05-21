@@ -2,18 +2,16 @@ import React, {MouseEvent} from 'react';
 import './App.css';
 
 function App() {
-    // const myFirstSubscriber = (e:MouseEvent<HTMLButtonElement>) => {
-    //     console.log("Hello i'm Vasya")
-    // }
-    // const mySecondSubscriber = (e:MouseEvent<HTMLButtonElement) => {
-    //     console.log("Hello i'm Ivan")
-    // }
-
-    const onClickHandler=(name:string)=>{console.log(name)}
+    const foo1 = () => {
+        console.log(100200)
+    }
+    const foo2 = (chislo:number) => {
+        console.log(chislo)
+    }
     return (
         <div className="App">
-            <button onClick={()=>{onClickHandler("Vasya")}}>MyYouTubeChanel-1</button>
-            <button onClick={()=>{onClickHandler("Igor")}}>MyYouTubeChanel-2</button>
+            <button onClick={foo1}>1</button>
+            <button onClick={()=>{foo2(100200)}}>2</button>
         </div>
     )
 }
