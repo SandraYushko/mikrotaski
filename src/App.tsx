@@ -1,17 +1,18 @@
 import React, {MouseEvent} from 'react';
 import './App.css';
+import {Button} from "./components/Button";
 
 function App() {
-    const foo1 = () => {
-        console.log(100200)
+    const button1Foo = () => {
+console.log("i'm Vasua")
     }
-    const foo2 = (chislo:number) => {
-        console.log(chislo)
+    const button2Foo = () => {
+        console.log("i'm Ivan")
     }
     return (
         <div className="App">
-            <button onClick={foo1}>1</button>
-            <button onClick={()=>{foo2(100200)}}>2</button>
+            <Button name={"MyYouTubeChanel-1"} callBack={button1Foo}/>
+            <Button name={"MyYouTubeChanel-2"} callBack={button2Foo}/>
         </div>
     )
 }
