@@ -1,24 +1,53 @@
-import React, {MouseEvent} from 'react';
+import React, {useState} from 'react';
 import './App.css';
-import {Button} from "./components/Button";
 
-function App() {
-    const button1Foo = (subscriber:string, age:number) => {
-        console.log(subscriber,age)
+type FilterType='all'|'ruble'|'dollar'
+export const App = () => {
+    const [money, setMoney] = useState([
+        {banknote: "dollar", nominal: 100, number: "a123456789"},
+        {banknote: "dollar", nominal: 50, number: "b123456789"},
+        {banknote: "ruble", nominal: 100, number: "c123456789"},
+        {banknote: "dollar", nominal: 100, number: "d123456789"},
+        {banknote: "dollar", nominal: 50, number: "e123456789"},
+        {banknote: "ruble", nominal: 100, number: "f123456789"},
+        {banknote: "dollar", nominal: 50, number: "j123456789"},
+        {banknote: "ruble", nominal: 50, number: "h123456789"}
+    ])
+
+const [knopka, setKnopka]=useState<FilterType>("all")
+    let currentMoney = money
+    if (knopka==='dollar') {
+        currentMoney = money.filter(filteredMoney => filteredMoney.banknote === "dollar")
+        //setMoney(currentMoney)
     }
-    const button2Foo = (subscriber:string) => {
-        console.log(subscriber)
+    if (knopka==='ruble') {
+        currentMoney = money.filter(filteredMoney => filteredMoney.banknote === "ruble")
+        //setMoney(currentMoney)
     }
-    const button3Foo = () => {
-        console.log("i'm stupid button")
-    }
+
+    let onClickHandler = (vibranaKnopka: FilterType) => {
+        setKnopka(vibranaKnopka)
+        }
+
+
     return (
-        <div className="App">
-            <Button name={"MyYouTubeChanel-1"} callBack={()=>button1Foo("i'm Ivan",22)}/>
-            <Button name={"MyYouTubeChanel-2"} callBack={()=>button2Foo("i'm Vasya")}/>
-            <Button name={"MyYouTubeChanel-3"} callBack={button3Foo}/>
+        <div>
+            <ul>
+                {currentMoney.map((objFromMoneyArr, index) => {
+                    return (
+                        <li key={index}>
+                            <span>{objFromMoneyArr.banknote}</span>
+                            <span>{objFromMoneyArr.nominal}</span>
+                            <span>{objFromMoneyArr.number}</span>
+                        </li>
+                    )
+                })}
+            </ul>
+            <div style={{marginLeft: 35}}>
+                <button onClick={() => onClickHandler('all')}>all</button>
+                <button onClick={() => onClickHandler('ruble')}>ruble</button>
+                <button onClick={() => onClickHandler('dollar')}>dollar</button>
+            </div>
         </div>
     )
 }
-
-export default App;
