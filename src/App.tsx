@@ -18,7 +18,7 @@ export const App = () => {
 const [knopka, setKnopka]=useState<FilterType>("all")
     let currentMoney = money
     if (knopka==='dollar') {
-        currentMoney = money.filter(filteredMoney => filteredMoney.banknote === "dollar")
+        currentMoney= money.filter(filteredMoney => filteredMoney.banknote === "dollar")
     }
     if (knopka==='ruble') {
         currentMoney = money.filter(filteredMoney => filteredMoney.banknote === "ruble")
